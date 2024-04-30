@@ -91,7 +91,7 @@ public class Test_ {
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
         ProcessEngine processEngine = cfg.buildProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
-        repositoryService.deleteDeployment("1",true);
+        repositoryService.deleteDeployment("37501",true);
     }
 
     /**
@@ -197,4 +197,36 @@ public class Test_ {
                     + historicActivityInstance.getDurationInMillis() + " milliseconds");
         }
     }
+
+
+    /**
+     * 挂起流程
+     */
+    @Test
+    public void test05() {
+        ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration()
+                .setJdbcUrl("jdbc:mysql://192.168.150.88:3306/flowable?serverTimezone=UTC")
+                .setJdbcUsername("root")
+                .setJdbcPassword("123456")
+                .setJdbcDriver("com.mysql.cj.jdbc.Driver")
+                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
+        //获取流程引擎对象
+        ProcessEngine processEngine = cfg.buildProcessEngine();
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
+                .processDefinitionId("MyHolidayUI:1:47504")
+                .singleResult();
+        //获取流程定义状态
+        boolean suspended = processDefinition.isSuspended();
+        System.out.println("流程定义状态"+suspended);
+        if(suspended) {
+            System.out.println("激活流程定义");
+            repositoryService.activateProcessDefinitionById("MyHolidayUI:1:47504",true,null);
+        }else {
+            System.out.println("挂起流程");
+            repositoryService.suspendProcessDefinitionById("MyHolidayUI:1:47504",true,null);
+        }
+    }
+
+
 }
