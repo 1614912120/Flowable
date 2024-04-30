@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
+  <process id="holiday-group" name="请假流程-候选人组" isExecutable="true">
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="sid-8694BDE8-2824-4A05-84B2-FEA3CC747512" name="创建请假单" flowable:candidateGroups="${g1}" flowable:formFieldValidation="true"></userTask>
+    <sequenceFlow id="sid-5B978F27-78BA-4974-BAFD-F9339F5F7B6C" sourceRef="startEvent1" targetRef="sid-8694BDE8-2824-4A05-84B2-FEA3CC747512"></sequenceFlow>
+    <userTask id="sid-B57D3F68-095A-4BA5-BB6E-0AD36EEEABA6" name="经理审批" flowable:formFieldValidation="true"></userTask>
+    <sequenceFlow id="sid-AAA43380-1285-4FBE-922C-0A4480163726" sourceRef="sid-8694BDE8-2824-4A05-84B2-FEA3CC747512" targetRef="sid-B57D3F68-095A-4BA5-BB6E-0AD36EEEABA6"></sequenceFlow>
+    <endEvent id="sid-367FE005-354E-4A9F-9A31-38280CAA7491"></endEvent>
+    <sequenceFlow id="sid-42D7B309-721E-451B-ABBD-BCE59ABFB7C4" sourceRef="sid-B57D3F68-095A-4BA5-BB6E-0AD36EEEABA6" targetRef="sid-367FE005-354E-4A9F-9A31-38280CAA7491"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_holiday-group">
+    <bpmndi:BPMNPlane bpmnElement="holiday-group" id="BPMNPlane_holiday-group">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-8694BDE8-2824-4A05-84B2-FEA3CC747512" id="BPMNShape_sid-8694BDE8-2824-4A05-84B2-FEA3CC747512">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-B57D3F68-095A-4BA5-BB6E-0AD36EEEABA6" id="BPMNShape_sid-B57D3F68-095A-4BA5-BB6E-0AD36EEEABA6">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-367FE005-354E-4A9F-9A31-38280CAA7491" id="BPMNShape_sid-367FE005-354E-4A9F-9A31-38280CAA7491">
+        <omgdc:Bounds height="28.0" width="28.0" x="465.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-42D7B309-721E-451B-ABBD-BCE59ABFB7C4" id="BPMNEdge_sid-42D7B309-721E-451B-ABBD-BCE59ABFB7C4" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="419.95000000000005" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-5B978F27-78BA-4974-BAFD-F9339F5F7B6C" id="BPMNEdge_sid-5B978F27-78BA-4974-BAFD-F9339F5F7B6C" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="129.9499984899576" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="174.9999999999917" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-AAA43380-1285-4FBE-922C-0A4480163726" id="BPMNEdge_sid-AAA43380-1285-4FBE-922C-0A4480163726" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="274.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="319.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
